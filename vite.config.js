@@ -31,7 +31,7 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: 'dist',
+    outDir: 'www',
     assetsDir: 'src',
     target: 'es2018',
     minify: 'esbuild',
