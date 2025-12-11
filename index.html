@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Moadbus Mobile Banking V2</title>
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <script>
+      // Detect mobile platforms
+      const isAndroid = /Android/i.test(navigator.userAgent);
+      const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+      if (isAndroid || isIOS) {
+        const script = document.createElement('script');
+        script.src = './native/native.js';
+        script.onload = () => console.log('Native bridge loaded for mobile!');
+        script.onerror = () => console.log('Failed to load native.js on mobile!');
+        document.body.appendChild(script);
+      }
+    </script>
+
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
